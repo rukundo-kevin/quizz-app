@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  node-app:
-    container_name: node-app-prod
+  quiz-app:
+    container_name: quiz-app-prod
     command: yarn start
-

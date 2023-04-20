@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  node-app:
+  quiz-app:
     build: .
-    image: node-app
+    image: quiz-app
     environment:
       - MONGODB_URL=mongodb://mongodb:27017/node-boilerplate
     ports:
@@ -11,7 +11,7 @@ services:
     depends_on:
       - postgresdb
     volumes:
-      - .:/usr/src/node-app
+      - .:/usr/src/quiz-app
     networks:
       - node-network
 
@@ -23,7 +23,7 @@ services:
       - POSTGRES_PASSWORD=secret
     ports:
       - '5432:5432'
-    volumes: 
+    volumes:
       - dbdata:/var/lib/postgresql/data
     networks:
       - node-network
