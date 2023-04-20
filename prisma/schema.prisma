@@ -20,8 +20,7 @@ model User {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   Token           Token[]
-  quizzes   Quiz[]
-
+  quizzes         UserQuiz[]
 }
 
 model Token {
@@ -47,6 +46,8 @@ enum TokenType {
   VERIFY_EMAIL
 }
 
+
+
 model Quiz {
   id          Int      @id @default(autoincrement())
   title       String   @unique
@@ -54,8 +55,7 @@ model Quiz {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   questions   Question[]
-  user        User?    @relation(fields: [userId], references: [id])
-  userId      Int?
+  users       UserQuiz[]
 }
 
 model Question {
@@ -78,4 +78,13 @@ model Answer {
   updatedAt   DateTime @updatedAt
 }
 
-
+model UserQuiz {
+  id        Int     @id @default(autoincrement())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  quiz      Quiz    @relation(fields: [quizId], references: [id])
+  quizId    Int
+  score     Int     @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

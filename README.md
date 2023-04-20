@@ -47,7 +47,7 @@ JWT_SECRET=your_secret_key_here
 API documentation is available at the following URL when the application is running:
 
 ```
-http://localhost:3000/api-docs/
+http://localhost:3000/v1/docs/
 ```
 
 ## Credits

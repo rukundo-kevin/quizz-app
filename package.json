@@ -1,9 +1,9 @@
 {
-  "name": "prisma-express-typescript-boilerplate",
+  "name": "quiz-app",
   "version": "1.0.0",
-  "description": "REST API Boilerplate with Node JS, TypeScript, Express and Prisma",
+  "description": "Quiz App",
   "main": "src/index.ts",
-  "repository": "https://github.com/antonio-lazaro/prisma-express-typescript-boilerplate.git",
+  "repository": "https://github.com/kevin-rukundo/quiz-app.git",
   "scripts": {
     "start": "yarn build && pm2 start ecosystem.config.json --no-daemon",
     "dev": "cross-env NODE_ENV=development nodemon src/index.ts",

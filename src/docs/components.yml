@@ -15,9 +15,28 @@ components:
           enum: [USER, ADMIN]
       example:
         id: 5ebac534954b54139806c112
-        email: fake@example.com
+        email: user@gmail.com
         name: fake name
         role: USER
+
+    Quiz:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+          format: email
+        description:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        id: 2
+        title: Web Dev
+        description: Quiz in the web development category
 
     Token:
       type: object
