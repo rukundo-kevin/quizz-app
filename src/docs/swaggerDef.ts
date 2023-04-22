@@ -14,6 +14,9 @@ const swaggerDef = {
   servers: [
     {
       url: `http://localhost:${config.port}/v1`
+    },
+    {
+      url: `https://quizz-app.herokuapp.com/v1/`
     }
   ]
 };
