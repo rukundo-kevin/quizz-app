@@ -3,4 +3,4 @@ version: '3.8'
 services:
   quiz-app:
     container_name: quiz-app-dev
-    command: yarn dev -L
+    command: npm run dev -L
