@@ -38,6 +38,27 @@ components:
         title: Web Dev
         description: Quiz in the web development category
 
+    UserQuiz:
+      type: object
+      properties:
+        id:
+          type: number
+        userId:
+          type: number
+        quizId:
+          type: number
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        id: 2
+        userId: 3
+        quizId: 1
+        score: 20
+        createdAt: "2023-04-22T18:51:47.206Z"
+        updatedAt: "2023-04-22T18:52:47.206Z"
+
     Token:
       type: object
       properties:
@@ -76,6 +97,15 @@ components:
           example:
             code: 400
             message: Email already taken
+    ValidationError:
+      description: Error validating request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: "\"score\" must be a number"
     Unauthorized:
       description: Unauthorized
       content:

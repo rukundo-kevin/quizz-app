@@ -1,8 +1,12 @@
-import { PrismaClient, Question, Quiz } from '@prisma/client';
+import { PrismaClient, Question, Quiz, UserQuiz } from '@prisma/client';
 import prisma from '../client';
 
 const createQuiz = async (quiz: Quiz): Promise<Quiz> => {
   return prisma.quiz.create({ data: quiz });
+};
+
+const createUserQuiz = async (score: number, quizId: number, userId: number): Promise<UserQuiz> => {
+  return prisma.userQuiz.create({ data: { score, userId, quizId } });
 };
 
 const getQuizById = async (id: number): Promise<Quiz | null> => {
@@ -22,11 +26,23 @@ const deleteQuiz = async (id: number): Promise<Quiz> => {
 };
 
 const getQuizCategoryQuestions = async (id: number): Promise<Question[]> => {
-  return prisma.question.findMany({ where: { quizId: id } });
+  return prisma.question.findMany({
+    where: { quizId: id },
+    include: {
+      answers: {
+        select: {
+          id: true,
+          answerText: true,
+          isCorrect: true
+        }
+      }
+    }
+  });
 };
 
 export default {
   createQuiz,
+  createUserQuiz,
   getQuizById,
   getQuizzCategories,
   getQuizCategoryQuestions,

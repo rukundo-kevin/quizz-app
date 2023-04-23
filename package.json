@@ -21,6 +21,7 @@
     "docker:dev-db:start": "docker-compose -f docker-compose.only-db-dev.yml up -d",
     "docker:dev-db:stop": "docker-compose -f docker-compose.only-db-dev.yml down",
     "prepare": "husky install",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "build": "rimraf build && tsc -p tsconfig.json"
   },
   "keywords": [
@@ -55,7 +56,6 @@
     "node-mocks-http": "^1.12.1",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.1",
-    "prisma": "^4.10.1",
     "supertest": "^6.3.3",
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.6.0",
@@ -83,8 +83,11 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "pm2": "^5.2.2",
+    "prisma": "^4.10.1",
+    "rimraf": "^5.0.0",
     "uuid": "^9.0.0",
     "winston": "^3.8.2",
     "xss-filters": "^1.2.7"
-  }
+  },
+  "packageManager": "yarn@3.5.0"
 }

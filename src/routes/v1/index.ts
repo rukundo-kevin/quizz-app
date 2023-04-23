@@ -19,10 +19,6 @@ const defaultRoutes = [
   {
     path: '/quiz',
     route: quizRoute
-  },
-  {
-    path: '/docs',
-    route: docsRoute
   }
 ];
 

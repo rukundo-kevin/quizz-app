@@ -1,2 +1,12 @@
 import Joi from 'joi';
-import { Quiz } from '@prisma/client';
+
+const submitScore = {
+  body: Joi.object().keys({
+    score: Joi.number().required(),
+    quizId: Joi.number().required()
+  })
+};
+
+export default {
+  submitScore
+};

@@ -4,7 +4,6 @@ import prisma from '../client';
 import ApiError from '../utils/ApiError';
 import { encryptPassword } from '../utils/encryption';
 
-
 const createUser = async (
   email: string,
   password: string,

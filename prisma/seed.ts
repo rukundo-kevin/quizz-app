@@ -3,11 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const prisma = new PrismaClient();
 
-type QuizWhereUniqueInput = {
-  id?: number;
-  title?: string;
-};
-
 const quizTitles: string[] = [
   'Tech History',
   'Programming',

@@ -1,5 +1,7 @@
 import catchAsync from '../utils/catchAsync';
 import quizService from '../services/quiz.service';
+import { User } from '@prisma/client';
+import httpStatus from 'http-status';
 
 const getQuiz = catchAsync(async (req, res) => {
   const quiz = await quizService.getQuizById(req.params.quizId);
@@ -12,7 +14,7 @@ const getQuizCategories = catchAsync(async (req, res) => {
 });
 
 const getQuizCategoryQuestions = catchAsync(async (req, res) => {
-  const questions = await quizService.getQuizCategoryQuestions(req.params.quizId);
+  const questions = await quizService.getQuizCategoryQuestions(parseInt(req.params.id));
   res.send(questions);
 });
 
@@ -21,9 +23,21 @@ const createQuiz = catchAsync(async (req, res) => {
   res.status(201).send(quiz);
 });
 
+const createUserQuiz = catchAsync(async (req, res) => {
+  const { score, quizId } = req.body;
+  const userQuiz = await quizService.createUserQuiz(score, quizId, (req.user as User).id);
+  res.status(httpStatus.CREATED).send({
+    message: 'User Quiz scores created successfully',
+    data: {
+      userQuiz
+    }
+  });
+});
+
 export default {
   getQuiz,
   getQuizCategories,
   createQuiz,
+  createUserQuiz,
   getQuizCategoryQuestions
 };
