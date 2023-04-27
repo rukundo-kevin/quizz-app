@@ -40,6 +40,10 @@ const getQuizCategoryQuestions = async (id: number): Promise<Question[]> => {
   });
 };
 
+const getUserQuizScore = async (userId: number): Promise<UserQuiz[]> => {
+  return prisma.userQuiz.findMany({ where: { userId }, include: { quiz: true } });
+};
+
 export default {
   createQuiz,
   createUserQuiz,
@@ -47,5 +51,6 @@ export default {
   getQuizzCategories,
   getQuizCategoryQuestions,
   updateQuiz,
-  deleteQuiz
+  deleteQuiz,
+  getUserQuizScore
 };

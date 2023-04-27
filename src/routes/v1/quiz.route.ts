@@ -10,7 +10,7 @@ router.post('/', auth(), validate(quizValidation.submitScore), quizController.cr
 router.get('/', auth(), quizController.getQuizCategories);
 router.get('/category', auth(), quizController.getQuizCategories);
 router.get('/category/:id/quizzez', auth(), quizController.getQuizCategoryQuestions);
-
+router.get('/score', auth(), quizController.getUserQuizScore);
 export default router;
 /**
  * @swagger

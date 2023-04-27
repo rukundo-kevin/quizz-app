@@ -34,10 +34,16 @@ const createUserQuiz = catchAsync(async (req, res) => {
   });
 });
 
+const getUserQuizScore = catchAsync(async (req, res) => {
+  const userQuiz = await quizService.getUserQuizScore((req.user as User).id);
+  res.send({ data: { message: 'User Quiz scores retrieved successfully', userQuiz } });
+});
+
 export default {
   getQuiz,
   getQuizCategories,
   createQuiz,
   createUserQuiz,
-  getQuizCategoryQuestions
+  getQuizCategoryQuestions,
+  getUserQuizScore
 };
